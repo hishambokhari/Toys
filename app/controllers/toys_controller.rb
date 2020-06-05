@@ -29,7 +29,7 @@ class ToysController < ApplicationController
 
     def update
         if @toy.update(toy_params)
-            flash[:notice] = "Your toy was updated"
+            flash[:notice] = "Your Toy card was updated"
             redirect_to @toy
         else
             render 'edit'
