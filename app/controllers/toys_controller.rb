@@ -35,4 +35,10 @@ class ToysController < ApplicationController
             render 'edit'
         end
     end
+
+    def destroy
+        @toy = Toy.find(params[:id])
+        @toy.destroy
+        redirect_to @toy
+    end
 end

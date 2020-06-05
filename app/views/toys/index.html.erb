@@ -14,7 +14,9 @@
             <tr>
                 <td><%= toy.name %></td>
                 <td><%= toy.description %></td>
-                <td>placeholder</td>
+                <td><%= link_to 'Show', toy_path(toy) %></td>
+                <td><%= link_to 'Edit', edit_toy_path(toy) %></td>
+                <td><%= link_to 'Delete', toy_path(toy), method: :delete %></td>
             </tr>
         <% end %>
     </tbody>
