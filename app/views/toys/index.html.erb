@@ -1,1 +1,21 @@
-<h1>Index toys</h1
+<h1>All Toys</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @toys.each do |toy| %>
+            <tr>
+                <td><%= toy.name %></td>
+                <td><%= toy.description %></td>
+                <td>placeholder</td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
