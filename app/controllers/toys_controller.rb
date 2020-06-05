@@ -14,7 +14,11 @@ class ToysController < ApplicationController
 
     def create 
         @toy = Toy.new(params.require(:toy).permit(:name, :description))
-        @toy.save
-        redirect_to @toy
+        if @toy.save
+            flash[:notice] = "Toy was created successfully"
+            redirect_to @toy
+        else
+            render 'new'
+        end
     end
 end
