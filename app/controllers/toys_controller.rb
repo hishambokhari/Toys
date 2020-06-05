@@ -21,4 +21,18 @@ class ToysController < ApplicationController
             render 'new'
         end
     end
+
+    def edit
+        @toy = Toy.find(params[:id])
+    end
+
+    def update
+        @toy = Toy.find(params[:id])
+        if @toy.update(params.require(:toy).permit(:name, :description))
+            flash[:notice] = "Your toy was updated"
+            redirect_to @toy
+        else
+            render 'edit'
+        end
+    end
 end
