@@ -1,11 +1,12 @@
 class ToysController < ApplicationController
+    before_action :set_toy, only: [:show, :edit, :update, :destroy]
 
     def index
         @toys = Toy.all
     end
     
     def show
-        @toy = Toy.find(params[:id])
+        
     end
 
     def new
@@ -13,7 +14,7 @@ class ToysController < ApplicationController
     end
 
     def create 
-        @toy = Toy.new(params.require(:toy).permit(:name, :description))
+        @toy = Toy.new(toy_params)
         if @toy.save
             flash[:notice] = "Toy was created successfully"
             redirect_to @toy
@@ -23,12 +24,11 @@ class ToysController < ApplicationController
     end
 
     def edit
-        @toy = Toy.find(params[:id])
+       
     end
 
     def update
-        @toy = Toy.find(params[:id])
-        if @toy.update(params.require(:toy).permit(:name, :description))
+        if @toy.update(toy_params)
             flash[:notice] = "Your toy was updated"
             redirect_to @toy
         else
@@ -37,8 +37,17 @@ class ToysController < ApplicationController
     end
 
     def destroy
-        @toy = Toy.find(params[:id])
         @toy.destroy
         redirect_to @toy
+    end
+
+    private
+
+    def toy_params
+        params.require(:toy).permit(:name, :description)
+    end
+
+    def set_toy
+        @toy = Toy.find(params[:id])
     end
 end
