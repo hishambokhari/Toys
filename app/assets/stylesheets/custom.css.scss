@@ -5,7 +5,7 @@
 }
 
 .nav-link {
-    color: white !important;
+    color: #ff9800 !important;
 }
 
 #logo {
@@ -15,10 +15,12 @@
     text-transform: uppercase;
     letter-spacing: -1px;
     font-weight: bold;
+    color: #ff9800;
   }
 
   #home-container {
       margin-top: 25px;
+      
   }
 
   .jumbotron {
@@ -41,4 +43,15 @@
 
   #sticky-footer {
       flex-shrink: none;
+  }
+
+  .lead {
+      color: #ff9800 ;
+  }
+
+  .display-4 {
+    color: #d01e14 ;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: -5%;
   }
