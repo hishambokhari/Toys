@@ -2,3 +2,9 @@
 
 <p><strong>Name: </strong><%= @toy.name%></p>
 <p><strong>Description: </strong><%= @toy.description %></p>
+
+
+    <%= link_to "Edit", edit_toy_path(@toy) %> |
+    <%= link_to "Delete", toy_path(@toy), method: :delete, data: { confirm: "Are you sure?" } %> |
+    <%= link_to "Return to Toys listing", toys_path %> 
+
