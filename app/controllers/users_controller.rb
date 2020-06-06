@@ -33,6 +33,10 @@ class UsersController < ApplicationController
         @toys = @user.toys
     end
 
+    def index
+        @users = User.all
+    end
+
     private
 
     def user_params
