@@ -2,7 +2,8 @@ class ToysController < ApplicationController
     before_action :set_toy, only: [:show, :edit, :update, :destroy]
 
     def index
-        @toys = Toy.all
+        @toys = Toy.paginate(page: params[:page], per_page: 5)
+
     end
     
     def show

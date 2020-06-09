@@ -1,4 +1,11 @@
 <h1 class="text-center mt-4">Listing all Toy Cards</h1>
 
+<div class="flickr_pagination">
+    <%= will_paginate @toys, :container => false %>
+</div>
+
 <%= render 'toy' %>
 
+<div class="flickr_pagination mb-4">
+    <%= will_paginate @toys, :container => false %>
+</div>
