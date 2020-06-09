@@ -16,7 +16,7 @@ class ToysController < ApplicationController
 
     def create 
         @toy = Toy.new(toy_params)
-        @toy.user = User.first
+        @toy.user = current_user
         if @toy.save
             flash[:notice] = "Toy was created successfully"
             redirect_to @toy
