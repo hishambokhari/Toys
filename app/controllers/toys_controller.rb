@@ -1,5 +1,7 @@
 class ToysController < ApplicationController
     before_action :set_toy, only: [:show, :edit, :update, :destroy]
+    before_action :require_user, except: [:show, :index]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
 
     def index
         @toys = Toy.paginate(page: params[:page], per_page: 5)
@@ -51,5 +53,12 @@ class ToysController < ApplicationController
 
     def set_toy
         @toy = Toy.find(params[:id])
+    end
+
+    def require_same_user
+        if current_user != @toy.user
+            flash[:alert] = "You can only edit or delete your own article"
+            redirect_to @toy
+        end
     end
 end
